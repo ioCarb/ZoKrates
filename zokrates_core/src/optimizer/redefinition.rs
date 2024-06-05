@@ -231,7 +231,7 @@ impl<'ast, T: Field> Folder<'ast, T> for RedefinitionOptimizer<T> {
         match lc
             .value
             .iter()
-            .any(|(variable, _)| self.substitution.get(variable).is_some())
+            .any(|(variable, _)| self.substitution.contains_key(variable))
         {
             true =>
             // for each summand, check if it is equal to a linear term in our substitution, otherwise keep it as is

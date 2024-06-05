@@ -55,11 +55,11 @@ pub enum G2Affine {
     Fq(G2AffineFq),
 }
 
-impl ToString for G2Affine {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for G2Affine {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            G2Affine::Fq(e) => e.to_string(),
-            G2Affine::Fq2(e) => e.to_string(),
+            G2Affine::Fq(e) => e.fmt(f),
+            G2Affine::Fq2(e) => e.fmt(f),
         }
     }
 }
@@ -72,20 +72,22 @@ pub struct G2AffineFq2(pub Fq2, pub Fq2);
 #[derive(Serialize, Deserialize, Clone)]
 pub struct G2AffineFq(pub Fq, pub Fq);
 
-impl ToString for G1Affine {
-    fn to_string(&self) -> String {
-        format!("{}, {}", self.0, self.1)
+impl std::fmt::Display for G1Affine {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}, {}", self.0, self.1)
     }
 }
 
-impl ToString for G2AffineFq {
-    fn to_string(&self) -> String {
-        format!("{}, {}", self.0, self.1)
+impl std::fmt::Display for G2AffineFq {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}, {}", self.0, self.1)
     }
 }
-impl ToString for G2AffineFq2 {
-    fn to_string(&self) -> String {
-        format!(
+
+impl std::fmt::Display for G2AffineFq2 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
             "[{}, {}], [{}, {}]",
             (self.0).0,
             (self.0).1,
