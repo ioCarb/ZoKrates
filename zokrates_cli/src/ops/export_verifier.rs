@@ -62,12 +62,12 @@ pub fn exec(sub_matches: &ArgMatches) -> Result<(), String> {
         (CurveParameter::Bn128, SchemeParameter::G16) => {
             cli_export_verifier::<Bn128Field, G16>(sub_matches, vk)
         }
-        (CurveParameter::Bn128, SchemeParameter::GM17) => {
-            cli_export_verifier::<Bn128Field, GM17>(sub_matches, vk)
-        }
-        (CurveParameter::Bn128, SchemeParameter::MARLIN) => {
-            cli_export_verifier::<Bn128Field, Marlin>(sub_matches, vk)
-        }
+        // (CurveParameter::Bn128, SchemeParameter::GM17) => {
+        //     cli_export_verifier::<Bn128Field, GM17>(sub_matches, vk)
+        // }
+        // (CurveParameter::Bn128, SchemeParameter::MARLIN) => {
+        //     cli_export_verifier::<Bn128Field, Marlin>(sub_matches, vk)
+        // }
         (curve_parameter, scheme_parameter) => Err(format!("Could not export verifier with given parameters (curve: {}, scheme: {}): not supported", curve_parameter, scheme_parameter))
     }
 }

@@ -374,16 +374,17 @@ impl<'de, R: Read + Seek>
         }
 
         match header.curve_id {
-            m if m == Bls12_381Field::id() => {
-                Ok(ProgEnum::Bls12_381Program(Self::read(r, &header)))
-            }
+            // m if m == Bls12_381Field::id() => {
+            //     Ok(ProgEnum::Bls12_381Program(Self::read(r, &header)))
+            // }
+            // TODO: SIZE HAPPENS HERE
             m if m == Bn128Field::id() => Ok(ProgEnum::Bn128Program(Self::read(r, &header))),
-            m if m == Bls12_377Field::id() => {
-                Ok(ProgEnum::Bls12_377Program(Self::read(r, &header)))
-            }
-            m if m == Bw6_761Field::id() => Ok(ProgEnum::Bw6_761Program(Self::read(r, &header))),
-            m if m == PallasField::id() => Ok(ProgEnum::PallasProgram(Self::read(r, &header))),
-            m if m == VestaField::id() => Ok(ProgEnum::VestaProgram(Self::read(r, &header))),
+            // m if m == Bls12_377Field::id() => {
+            //     Ok(ProgEnum::Bls12_377Program(Self::read(r, &header)))
+            // }
+            // m if m == Bw6_761Field::id() => Ok(ProgEnum::Bw6_761Program(Self::read(r, &header))),
+            // m if m == PallasField::id() => Ok(ProgEnum::PallasProgram(Self::read(r, &header))),
+            // m if m == VestaField::id() => Ok(ProgEnum::VestaProgram(Self::read(r, &header))),
             _ => Err(String::from("Unknown curve identifier")),
         }
     }

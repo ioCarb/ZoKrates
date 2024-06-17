@@ -109,40 +109,40 @@ pub fn exec(sub_matches: &ArgMatches) -> Result<(), String> {
     match parameters {
         #[cfg(feature = "bellman")]
         Parameters(BackendParameter::Bellman, _, SchemeParameter::G16) => match prog {
-            ProgEnum::Bn128Program(p) => {
-                cli_setup_non_universal::<_, _, G16, Bellman>(p, sub_matches)
-            }
-            ProgEnum::Bls12_381Program(p) => {
-                cli_setup_non_universal::<_, _, G16, Bellman>(p, sub_matches)
-            }
+            // ProgEnum::Bn128Program(p) => {
+            //     cli_setup_non_universal::<_, _, G16, Bellman>(p, sub_matches)
+            // }
+            // ProgEnum::Bls12_381Program(p) => {
+            //     cli_setup_non_universal::<_, _, G16, Bellman>(p, sub_matches)
+            // }
             _ => unreachable!(),
         },
         #[cfg(feature = "ark")]
         Parameters(BackendParameter::Ark, _, SchemeParameter::G16) => match prog {
             ProgEnum::Bn128Program(p) => cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches),
-            ProgEnum::Bls12_381Program(p) => {
-                cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches)
-            }
-            ProgEnum::Bls12_377Program(p) => {
-                cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches)
-            }
-            ProgEnum::Bw6_761Program(p) => {
-                cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches)
-            }
+            // ProgEnum::Bls12_381Program(p) => {
+            //     cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches)
+            // }
+            // ProgEnum::Bls12_377Program(p) => {
+            //     cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches)
+            // }
+            // ProgEnum::Bw6_761Program(p) => {
+            //     cli_setup_non_universal::<_, _, G16, Ark>(p, sub_matches)
+            // }
             _ => unreachable!(),
         },
         #[cfg(feature = "ark")]
         Parameters(BackendParameter::Ark, _, SchemeParameter::GM17) => match prog {
-            ProgEnum::Bn128Program(p) => cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches),
-            ProgEnum::Bls12_381Program(p) => {
-                cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches)
-            }
-            ProgEnum::Bls12_377Program(p) => {
-                cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches)
-            }
-            ProgEnum::Bw6_761Program(p) => {
-                cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches)
-            }
+            // ProgEnum::Bn128Program(p) => cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches),
+            // ProgEnum::Bls12_381Program(p) => {
+            //     cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches)
+            // }
+            // ProgEnum::Bls12_377Program(p) => {
+            //     cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches)
+            // }
+            // ProgEnum::Bw6_761Program(p) => {
+            //     cli_setup_non_universal::<_, _, GM17, Ark>(p, sub_matches)
+            // }
             _ => unreachable!(),
         },
         #[cfg(feature = "ark")]
@@ -161,18 +161,18 @@ pub fn exec(sub_matches: &ArgMatches) -> Result<(), String> {
                 .map_err(|_| "Cannot read universal setup".to_string())?;
 
             match prog {
-                ProgEnum::Bn128Program(p) => {
-                    cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
-                }
-                ProgEnum::Bls12_381Program(p) => {
-                    cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
-                }
-                ProgEnum::Bls12_377Program(p) => {
-                    cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
-                }
-                ProgEnum::Bw6_761Program(p) => {
-                    cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
-                }
+                // ProgEnum::Bn128Program(p) => {
+                //     cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
+                // }
+                // ProgEnum::Bls12_381Program(p) => {
+                //     cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
+                // }
+                // ProgEnum::Bls12_377Program(p) => {
+                //     cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
+                // }
+                // ProgEnum::Bw6_761Program(p) => {
+                //     cli_setup_universal::<_, _, Marlin, Ark>(p, setup, sub_matches)
+                // }
                 _ => unreachable!(),
             }
         }
