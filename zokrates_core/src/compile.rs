@@ -232,6 +232,9 @@ fn check_with_arena<'ast, T: Field, E: Into<imports::Error>>(
     let typed_ast = Checker::check(compiled)
         .map_err(|errors| CompileErrors(errors.into_iter().map(CompileError::from).collect()))?;
 
+    let mut file = std::fs::File::create("typed_ast").unwrap();
+    io::Write::write(&mut file, format!("{:?}", typed_ast).as_bytes()).unwrap();
+
     log::trace!("\n{}", typed_ast);
 
     let main_module = typed_ast.main.clone();
