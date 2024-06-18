@@ -53,22 +53,24 @@ impl<
 {
     pub fn collect(self) -> MemoryProgEnum<'ast> {
         match self {
-            ProgEnum::Bls12_381Program(p) => ProgEnum::Bls12_381Program(p.collect()),
+            //ProgEnum::Bls12_381Program(p) => ProgEnum::Bls12_381Program(p.collect()),
             ProgEnum::Bn128Program(p) => ProgEnum::Bn128Program(p.collect()),
-            ProgEnum::Bls12_377Program(p) => ProgEnum::Bls12_377Program(p.collect()),
-            ProgEnum::Bw6_761Program(p) => ProgEnum::Bw6_761Program(p.collect()),
-            ProgEnum::PallasProgram(p) => ProgEnum::PallasProgram(p.collect()),
-            ProgEnum::VestaProgram(p) => ProgEnum::VestaProgram(p.collect()),
+            // ProgEnum::Bls12_377Program(p) => ProgEnum::Bls12_377Program(p.collect()),
+            // ProgEnum::Bw6_761Program(p) => ProgEnum::Bw6_761Program(p.collect()),
+            // ProgEnum::PallasProgram(p) => ProgEnum::PallasProgram(p.collect()),
+            // ProgEnum::VestaProgram(p) => ProgEnum::VestaProgram(p.collect()),
+            _ => unreachable!()
         }
     }
     pub fn curve(&self) -> &'static str {
         match self {
             ProgEnum::Bn128Program(_) => Bn128Field::name(),
-            ProgEnum::Bls12_381Program(_) => Bls12_381Field::name(),
-            ProgEnum::Bls12_377Program(_) => Bls12_377Field::name(),
-            ProgEnum::Bw6_761Program(_) => Bw6_761Field::name(),
-            ProgEnum::PallasProgram(_) => Bls12_377Field::name(),
-            ProgEnum::VestaProgram(_) => Bw6_761Field::name(),
+            // ProgEnum::Bls12_381Program(_) => Bls12_381Field::name(),
+            // ProgEnum::Bls12_377Program(_) => Bls12_377Field::name(),
+            // ProgEnum::Bw6_761Program(_) => Bw6_761Field::name(),
+            // ProgEnum::PallasProgram(_) => Bls12_377Field::name(),
+            // ProgEnum::VestaProgram(_) => Bw6_761Field::name(),
+            _ => unreachable!()
         }
     }
 }
